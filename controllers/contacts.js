@@ -1,4 +1,4 @@
-const Contact = require('../models/contact');
+
 
 async function getAllContacts(req, res, next) {
   try {

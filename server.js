@@ -1,15 +1,25 @@
-require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-const { connect } = require('./db');
+// Import database connection
+const { initDb } = require('./db');   // CommonJS style
+const routes = require('./routes'); 
 
+// Middleware
 app.use(express.json());
-app.use('/', require('./routes'));
+app.use('/', routes);
 
-connect();
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+// Connect to MongoDB before starting the server
+initDb((err) => {
+  if (err) {
+    console.log('MongoDB connection error:', err);
+  } else {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log('Connected to MongoDB');
+    });
+  }
 });

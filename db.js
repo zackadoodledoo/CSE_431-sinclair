@@ -1,18 +1,36 @@
-const mongoose = require('mongoose');
-
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/cse341_sinclair';
-
-async function connect() {
-  try {
-    await mongoose.connect(mongoUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('Connected to MongoDB');
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-    process.exit(1);
-  }
+const { MongoClient } = require('mongodb');
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
 }
 
-module.exports = { connect, mongoose };
+// Render injects variables directly into process.env
+const dbUrl = process.env.MONGODB_URI;
+
+let db;
+
+const initDb = (callback) => {
+  if (db) {
+    console.log('Db is already initialized!');
+    return callback(null, db);
+  }
+  MongoClient.connect(dbUrl)
+    .then((client) => {
+      db = client.db();
+      callback(null, db);
+    })
+    .catch((err) => {
+      callback(err);
+    });
+};
+
+const getDb = () => {
+  if (!db) {
+    throw Error('Db not initialized');
+  }
+  return db;
+};
+
+module.exports = {
+  initDb,
+  getDb,
+};
