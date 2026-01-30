@@ -1,7 +1,11 @@
 const routes = require('express').Router();
 
-const myController = require('../controllers');
+routes.use('/api/contacts', require('./contacts'));
 
-routes.get('/', myController.awesomeFunction);
+const usersController = require('../controllers');
+
+routes.get('/api/users', usersController.getAllUsers);
+
+routes.get('/', (req, res) => res.json({ message: 'API root. Use GET /api/users and GET /api/contacts' }));
 
 module.exports = routes;
