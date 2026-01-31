@@ -1,6 +1,9 @@
 // LocalHost
-## Get all contacts
-Get http://localhost:3000/contacts
+###
+GET http://localhost:3000 HTTP/1.1
 
-## Get a contact by ID
-Get http://localhost:3000/contacts/{id}
+###
+GET http://localhost:3000/contacts HTTP/1.1
+###
+
+GET http://localhost:3000/contacts/697e4bfc7e45e3750b0bad10 HTTP/1.1
