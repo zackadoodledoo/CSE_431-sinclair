@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+require('dotenv').config();
+
 // Import database connection
 const { initDb } = require('./db');   // CommonJS style
 const routes = require('./routes'); 
