@@ -7,3 +7,13 @@ GET http://localhost:3000/contacts HTTP/1.1
 ###
 
 GET http://localhost:3000/contacts/697e4bfc7e45e3750b0bad10 HTTP/1.1
+
+// PRODUCTION Deploy 
+### 
+GET https://cse-431-sinclair.onrender.com/contacts 
+### 
+GET https://cse-431-sinclair.onrender.com/contacts/697e4bfc7e45e3750b0bad10
+### 
+GET https://cse-431-sinclair.onrender.com/contacts/622023f642f9ab4cd6e060b3 
+### 
+GET https://cse-431-sinclair.onrender.com/contacts/622023f642f9ab4cd6e060b4
