@@ -1,0 +1,6 @@
+// LocalHost
+## Get all contacts
+Get http://localhost:3000/contacts
+
+## Get a contact by ID
+Get http://localhost:3000/contacts/{id}
