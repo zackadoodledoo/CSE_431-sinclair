@@ -20,5 +20,12 @@ GET https://cse-431-sinclair.onrender.com HTTP/1.1
 
 // PRODUCTION Deploy 
 ### 
-GET https://cse-431-sinclair.onrender.com/contacts 
+GET https://cse-431-sinclair.onrender.com/contacts HTTP/1.1
 ###
+
+### Get all contacts (Local) 
+GET http://localhost:3000/contacts 
+### Get one contact by ID (Local) 
+GET http://localhost:3000/contacts/697e4bfc7e45e3750b8bad10 
+### Get all contacts (Production) 
+GET https://cse-431-sinclair.onrender.com/contacts 
