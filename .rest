@@ -1,9 +1,19 @@
 GET http://localhost:3000 HTTP/1.1
-###
+###Get all the contacts
 
 GET http://localhost:3000/contacts HTTP/1.1
-###
+### Get contact by id
 GET http://localhost:3000/contacts/697e4bfc7e45e3750b0bad10 HTTP/1.1
+
+### Create contact
+POST http://localhost:3000/contacts HTTP/1.1 content-type:application/json
+{
+    "firstName": "Zack",
+    "lastName": "Sinclair",
+    "email": "sample@email.com",
+    "favoriteColor": "Blue",
+    "birthday": "1990-01-01"
+}
 
 ###
 GET https://cse-431-sinclair.onrender.com HTTP/1.1
